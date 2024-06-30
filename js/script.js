@@ -1,31 +1,34 @@
-let randomNumber = Math.floor(Math.random() * 3 + 1);
+function playGame(argPlayerInput){
+  clearMessages();
+  
+  let randomNumber = Math.floor(Math.random() * 3 + 1);
 
-function getMoveName(argMoveId){
-    if(argMoveId == 1){
-      return 'kamień';
-    } else if(argMoveId == 2){
+  function getMoveName(argMoveId){
+      if(argMoveId == 1){
+        return 'kamień';
+      } else if(argMoveId == 2){
         return 'papier';
-    } else if (argMoveId == 3){
+      } else if (argMoveId == 3){
         return 'nożyce';
+      }
+
+      printMessage('Nie znam ruchu o id ' + argMoveId + '.');
+      return 'nieznany ruch';
     }
 
-    printMessage('Nie znam ruchu o id ' + argMoveId + '.');
-    return 'nieznany ruch';
-  }
+  console.log('Wylosowana liczba to: ' + randomNumber);
 
-console.log('Wylosowana liczba to: ' + randomNumber);
+  let argComputerMove = getMoveName(randomNumber);
 
-let argComputerMove = getMoveName(randomNumber);
+  // let argPlayerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
 
-let argPlayerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
+  console.log('Gracz wpisał: ' + argPlayerInput);
 
-console.log('Gracz wpisał: ' + argPlayerInput);
+  let argPlayerMove = getMoveName(argPlayerInput);
 
- let argPlayerMove = getMoveName(argPlayerInput);
-
- function displayResult(){
+  function displayResult(){
     console.log('moves:', argComputerMove, argPlayerMove);
-    printMessage('Komputer zagrał '+ argComputerMove + ' a ty ' + argPlayerMove);
+    printMessage('<br> Komputer zagrał '+ argComputerMove + ' a ty ' + argPlayerMove);
 
     if( argComputerMove == 'kamień' && argPlayerMove == 'papier'){
         printMessage('Ty wygrywasz!'); 
@@ -50,10 +53,22 @@ console.log('Gracz wpisał: ' + argPlayerInput);
       }
       
     
+  }
+
+  let display = displayResult();
 }
 
-let display = displayResult();
+document.getElementById('play-rock').addEventListener('click', function(){
+  playGame(1);
+});
 
+document.getElementById('play-paper').addEventListener('click', function(){
+  playGame(2);
+});
+
+document.getElementById('play-scissors').addEventListener('click', function(){
+  playGame(3);
+});
 // Działa
 
 // let randomNumber = Math.floor(Math.random() * 3 + 1);
