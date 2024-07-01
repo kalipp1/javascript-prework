@@ -55,7 +55,7 @@ function playGame(argPlayerInput){
     
   }
 
-  let display = displayResult();
+    displayResult();
 }
 
 document.getElementById('play-rock').addEventListener('click', function(){
