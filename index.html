@@ -7,12 +7,18 @@
 </head>
 <body>
 	<div class="container">
-		<div id="buttons">
-			<button type="button" id="play-rock">Kamień</button>
-			<button type="button" id="play-paper">Papier</button>
-			<button type="button" id="play-scissors">Nożyce</button>
+		<div class="title"><h1>ROCK PAPER SCISSORS!</h1></div>
+		<div id="buttons" class="buttons-container">
+			<div class="images">
+				<img src="https://i.postimg.cc/JhPtxfmv/rock.webp" alt="rock" class="img">	
+				<img src="https://i.postimg.cc/1zqsnbXD/paper.png" alt="paper" class="img">
+				<img src="https://i.postimg.cc/sDv8g7vh/scissors.webp" alt="scissors" class="img">
+			</div>
+			<button type="button" id="play-rock" class="btn">Kamień</button>
+			<button type="button" id="play-paper" class="btn">Papier</button>
+			<button type="button" id="play-scissors" class="btn">Nożyce</button>
 		</div>
-		<div id="messages"></div>
+		<div id="messages" class="messages-container"></div>
 	</div>
 	<script src="js/functions.js"></script>
 	<script src="js/script.js"></script>
