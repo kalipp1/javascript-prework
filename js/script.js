@@ -1,3 +1,12 @@
+let computerScore = 0;
+let playerScore = 0;
+
+function zeroScore(computerScore , playerScore){
+  computerScore = 0;
+  playerScore = 0;
+  document.getElementById('result-p').innerHTML = 'Komputer: ' + computerScore + ' - Gracz: ' + playerScore;
+}
+
 function playGame(argPlayerInput){
   clearMessages();
   
@@ -31,31 +40,41 @@ function playGame(argPlayerInput){
     printMessage('<br> Komputer zagrał '+ argComputerMove + ' a ty ' + argPlayerMove);
 
     if( argComputerMove == 'kamień' && argPlayerMove == 'papier'){
-        printMessage('Ty wygrywasz!'); 
+        printMessage('Ty wygrywasz!');
+        playerScore += 1; 
       } else if ( argComputerMove == 'kamień' && argPlayerMove == 'nożyce'){
         printMessage('Wygrywa Komputer!');
+        computerScore += 1;
       } else if ( argComputerMove == 'kamień' && argPlayerMove == 'kamień'){
         printMessage('Remis!');
       } else if ( argComputerMove == 'papier' && argPlayerMove == 'kamień'){
         printMessage('Komputer wygrywa!');
+        computerScore += 1;
       } else if ( argComputerMove == 'papier' && argPlayerMove == 'papier'){
         printMessage('Remis!');
       } else if ( argComputerMove == 'papier' && argPlayerMove == 'nożyce'){
         printMessage('Ty wygrywasz!');
+        playerScore += 1;
       } else if ( argComputerMove == 'nożyce' && argPlayerMove == 'kamień'){
         printMessage('Ty wygrywasz!');
+        playerScore += 1;
       } else if ( argComputerMove == 'nożyce' && argPlayerMove == 'papier'){
         printMessage('Komputer wygrywa!');
+        computerScore += 1;
       } else if ( argComputerMove == 'nożyce' && argPlayerMove == 'nożyce'){
         printMessage('Remis!');
       } else {
         printMessage('Niepoprawnie zagrana gra');
-      }
+      };
       
-    
   }
 
     displayResult();
+
+    console.log(computerScore);
+    
+    document.getElementById('result-p').innerHTML = 'Komputer: ' + computerScore + ' - Gracz: ' + playerScore;
+    
 }
 
 document.getElementById('play-rock').addEventListener('click', function(){
@@ -69,6 +88,12 @@ document.getElementById('play-paper').addEventListener('click', function(){
 document.getElementById('play-scissors').addEventListener('click', function(){
   playGame(3);
 });
+
+document.getElementById('reset').addEventListener('click', function(){
+  zeroScore();
+});
+
+
 // Działa
 
 // let randomNumber = Math.floor(Math.random() * 3 + 1);
