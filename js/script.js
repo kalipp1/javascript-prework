@@ -1,7 +1,7 @@
 let computerScore = 0;
 let playerScore = 0;
 
-function zeroScore(computerScore , playerScore){
+function zeroScore(){
   computerScore = 0;
   playerScore = 0;
   document.getElementById('result-p').innerHTML = 'Komputer: ' + computerScore + ' - Gracz: ' + playerScore;
