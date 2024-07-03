@@ -1,18 +1,19 @@
+{
 let computerScore = 0;
 let playerScore = 0;
 
-function zeroScore(){
+const zeroScore = function(){
   computerScore = 0;
   playerScore = 0;
   document.getElementById('result-p').innerHTML = 'Komputer: ' + computerScore + ' - Gracz: ' + playerScore;
 }
 
-function playGame(argPlayerInput){
+const playGame = function(argPlayerInput){
   clearMessages();
   
-  let randomNumber = Math.floor(Math.random() * 3 + 1);
+  const randomNumber = Math.floor(Math.random() * 3 + 1);
 
-  function getMoveName(argMoveId){
+  const getMoveName = function(argMoveId){
       if(argMoveId == 1){
         return 'kamień';
       } else if(argMoveId == 2){
@@ -27,15 +28,15 @@ function playGame(argPlayerInput){
 
   console.log('Wylosowana liczba to: ' + randomNumber);
 
-  let argComputerMove = getMoveName(randomNumber);
+  const argComputerMove = getMoveName(randomNumber);
 
   // let argPlayerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
 
   console.log('Gracz wpisał: ' + argPlayerInput);
 
-  let argPlayerMove = getMoveName(argPlayerInput);
+  const argPlayerMove = getMoveName(argPlayerInput);
 
-  function displayResult(){
+  const displayResult = function(){
     console.log('moves:', argComputerMove, argPlayerMove);
     printMessage('<br> Komputer zagrał '+ argComputerMove + ' a ty ' + argPlayerMove);
 
@@ -93,7 +94,7 @@ document.getElementById('reset').addEventListener('click', function(){
   zeroScore();
 });
 
-
+}
 // Działa
 
 // let randomNumber = Math.floor(Math.random() * 3 + 1);
